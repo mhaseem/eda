@@ -3,5 +3,7 @@
   hosts: localhost
   gather_facts: true
   tasks:
-    - debug:
-        msg: "{{ ansible_date_time.iso8601 }} - {{ event.payload.type }}: {{ event.payload.track_slug}} {{ event.payload.participant_id }}"
+    - name: Print EDA event message
+      debug:
+        var: ansible_eda
+      msg: "{{ ansible_date_time.iso8601 }} - {{ event.payload.type }}: {{ event.payload.track_slug}} {{ event.payload.participant_id }}"
